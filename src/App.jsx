@@ -39,6 +39,38 @@ const imageConfig = {
 function App() {
   const [activeSection, setActiveSection] = useState('home');
 
+  // Función para descargar CV como PDF
+  const handleDownloadCV = () => {
+    try {
+      // Crear una nueva ventana con el CV optimizado para PDF
+      const cvWindow = window.open('/cv.html', '_blank', 'width=800,height=1000,scrollbars=yes,resizable=yes');
+      
+      if (cvWindow) {
+        // Esperar a que cargue y luego activar la impresión
+        cvWindow.addEventListener('load', () => {
+          setTimeout(() => {
+            cvWindow.print();
+          }, 1500);
+        });
+        
+        // Backup: Si el evento load no funciona, intentar después de 2 segundos
+        setTimeout(() => {
+          if (cvWindow && !cvWindow.closed) {
+            cvWindow.print();
+          }
+        }, 2500);
+      } else {
+        // Si la ventana popup fue bloqueada, abrir en nueva pestaña
+        window.open('/cv.html', '_blank');
+        alert('Se abrió tu CV en una nueva pestaña. Usa Ctrl+P para descargarlo como PDF.');
+      }
+    } catch (error) {
+      console.error('Error al abrir CV:', error);
+      // Fallback: redirigir a la página del CV
+      window.open('/cv.html', '_blank');
+    }
+  };
+
   // Datos del CV
   const personalData = {
     name: "Eros Alejandro León Félix",
@@ -163,6 +195,16 @@ function App() {
 
       {/* Hero Section */}
       <section id="home" className="hero">
+        {/* Elementos flotantes de fondo */}
+        <div className="floating-elements">
+          <div className="floating-element" title="Desarrollo"></div>
+          <div className="floating-element" title="Redes"></div>
+          <div className="floating-element" title="Servidores"></div>
+          <div className="floating-element" title="Configuración"></div>
+          <div className="floating-element" title="Base de Datos"></div>
+          <div className="floating-element" title="Cloud"></div>
+        </div>
+        
         <div className="container">
           <div className="hero-content">
             <div className="hero-text">
@@ -181,9 +223,9 @@ function App() {
                 <a href="#contact" className="btn btn-primary">
                   Contáctame <FaEnvelope />
                 </a>
-                <a href="/cv.html" target="_blank" className="btn btn-outline">
-                  Ver CV <FaExternalLinkAlt />
-                </a>
+                <button onClick={() => handleDownloadCV()} className="btn btn-outline">
+                  Descargar CV <FaDownload />
+                </button>
               </div>
             </div>
             <div className="hero-image">
@@ -433,9 +475,9 @@ function App() {
               <p>Ingeniero de Infraestructura especializado en sector agrícola</p>
             </div>
             <div className="footer-links">
-              <a href="/cv.html" target="_blank" className="footer-link">
+              <button onClick={handleDownloadCV} className="footer-link" style={{background: 'none', border: 'none', cursor: 'pointer'}}>
                 <FaDownload /> Descargar CV
-              </a>
+              </button>
             </div>
           </div>
         </div>
