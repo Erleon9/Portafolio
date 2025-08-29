@@ -16,6 +16,14 @@ import {
   FaCogs,
   FaCloud
 } from 'react-icons/fa';
+import {
+  MdComputer,
+  MdNetworkWifi,
+  MdStorage,
+  MdSettings,
+  MdBuild,
+  MdCloud
+} from 'react-icons/md';
 import './App.css';
 
 // Configuración de imágenes - fácil de actualizar
@@ -38,6 +46,7 @@ const imageConfig = {
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Función para descargar CV como PDF
   const handleDownloadCV = () => {
@@ -180,6 +189,7 @@ function App() {
           <div className="nav-brand">
             <span>Eros León</span>
           </div>
+          
           <ul className="nav-menu">
             <li><a href="#home" onClick={() => setActiveSection('home')}>Inicio</a></li>
             <li><a href="#about" onClick={() => setActiveSection('about')}>Acerca de</a></li>
@@ -190,19 +200,57 @@ function App() {
             <li><a href="#companies" onClick={() => setActiveSection('companies')}>Empresas</a></li>
             <li><a href="#contact" onClick={() => setActiveSection('contact')}>Contacto</a></li>
           </ul>
+          
+          <button 
+            className="mobile-menu-toggle"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          
+          <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
+            <a href="#home" onClick={() => { setActiveSection('home'); setMobileMenuOpen(false); }}>Inicio</a>
+            <a href="#about" onClick={() => { setActiveSection('about'); setMobileMenuOpen(false); }}>Acerca de</a>
+            <a href="#photos" onClick={() => { setActiveSection('photos'); setMobileMenuOpen(false); }}>Campo</a>
+            <a href="#experience" onClick={() => { setActiveSection('experience'); setMobileMenuOpen(false); }}>Experiencia</a>
+            <a href="#projects" onClick={() => { setActiveSection('projects'); setMobileMenuOpen(false); }}>Proyectos</a>
+            <a href="#skills" onClick={() => { setActiveSection('skills'); setMobileMenuOpen(false); }}>Habilidades</a>
+            <a href="#companies" onClick={() => { setActiveSection('companies'); setMobileMenuOpen(false); }}>Empresas</a>
+            <a href="#contact" onClick={() => { setActiveSection('contact'); setMobileMenuOpen(false); }}>Contacto</a>
+          </div>
         </div>
       </nav>
 
       {/* Hero Section */}
       <section id="home" className="hero">
-        {/* Elementos flotantes de fondo */}
-        <div className="floating-elements">
-          <div className="floating-element" title="Desarrollo"></div>
-          <div className="floating-element" title="Redes"></div>
-          <div className="floating-element" title="Servidores"></div>
-          <div className="floating-element" title="Configuración"></div>
-          <div className="floating-element" title="Base de Datos"></div>
-          <div className="floating-element" title="Cloud"></div>
+        {/* Tech Cards flotantes */}
+        <div className="tech-cards-floating">
+          <div className="tech-card" title="Desarrollo">
+            <MdComputer />
+            <span>Dev</span>
+          </div>
+          <div className="tech-card" title="Redes">
+            <MdNetworkWifi />
+            <span>Red</span>
+          </div>
+          <div className="tech-card" title="Servidores">
+            <MdStorage />
+            <span>DB</span>
+          </div>
+          <div className="tech-card" title="Configuración">
+            <MdSettings />
+            <span>Config</span>
+          </div>
+          <div className="tech-card" title="Soporte">
+            <MdBuild />
+            <span>Tools</span>
+          </div>
+          <div className="tech-card" title="Cloud">
+            <MdCloud />
+            <span>Cloud</span>
+          </div>
         </div>
         
         <div className="container">
