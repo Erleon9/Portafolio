@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Eros Alejandro León Félix - Ingeniero de Infraestructura</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.4;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            border-bottom: 3px solid #2c5aa0;
+        }
+
+        .photo-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 30px;
+            border: 4px solid #2c5aa0;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-info {
+            flex: 1;
+        }
+
+        .header-info h1 {
+            font-size: 2.5em;
+            color: #2c5aa0;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .header-info .title {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            color: #444;
+            font-size: 0.95em;
+        }
+
+        .contact-item strong {
+            margin-right: 8px;
+            color: #2c5aa0;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #2c5aa0;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #e0e0e0;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .profile-text {
+            font-size: 1em;
+            line-height: 1.6;
+            text-align: justify;
+            color: #555;
+        }
+
+        .experience-item {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #2c5aa0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .experience-item h3 {
+            color: #2c5aa0;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .company {
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 3px;
+        }
+
+        .experience-item .period {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        .experience-item .description {
+            color: #555;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-category {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #2c5aa0;
+        }
+
+        .skill-category h4 {
+            color: #2c5aa0;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            color: #555;
+            margin-bottom: 3px;
+            font-size: 0.9em;
+        }
+
+        .skill-category li:before {
+            content: "→ ";
+            color: #2c5aa0;
+            font-weight: bold;
+        }
+
+        .education-item {
+            margin-bottom: 15px;
+            padding: 12px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #2c5aa0;
+        }
+
+        .education-item h4 {
+            color: #2c5aa0;
+            margin-bottom: 3px;
+        }
+
+        .education-item .institution {
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 2px;
+        }
+
+        .education-item .period {
+            color: #666;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        .companies-section {
+            margin-top: 20px;
+        }
+
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .company-logo {
+            width: 100px;
+            height: 60px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .company-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        @media print {
+            .container {
+                padding: 0;
+                box-shadow: none;
+            }
+            
+            body {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="photo-container">
+                <img src="PLACEHOLDER_PHOTO_URL" alt="Eros León" style="display: none;">
+                <span>Foto en campo<br>agrícola</span>
+            </div>
+            <div class="header-info">
+                <h1>Eros Alejandro León Félix</h1>
+                <div class="title">Ingeniero de Infraestructura y Sistemas</div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <strong>📱</strong> 6624-693959
+                    </div>
+                    <div class="contact-item">
+                        <strong>📧</strong> erosleon9@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        <strong>💼</strong> Especialista en Sector Agrícola
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Perfil Profesional</h2>
+            <p class="profile-text">
+                Ingeniero especializado en infraestructura con más de 3 años de experiencia específica en sistemas para el sector agrícola. Experto en diseño e implementación de redes empresariales, administración de servidores, desarrollo de software agrícola y soluciones tecnológicas integrales para el sector agropecuario. He trabajado directamente con empresas líderes en cultivos de uva de mesa, sandía, melón y otros productos agrícolas, instalando redes en áreas de empaque, configurando infraestructura de telecomunicaciones y desarrollando software especializado para nómina y procesos de empaque.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Experiencia Laboral</h2>
+            
+            <div class="experience-item">
+                <h3>Ingeniero de Infraestructura y Sistemas - Sector Agrícola</h3>
+                <div class="company">Empresas del Sector Agropecuario</div>
+                <div class="period">2021 - Presente (3+ años)</div>
+                <div class="description">
+                    • Diseño e implementación de redes empresariales en áreas de empaque agrícola<br>
+                    • Instalación y configuración de cableado estructurado en instalaciones de gran escala<br>
+                    • Administración y configuración de routers, switches y equipos de red<br>
+                    • Desarrollo de software especializado para el área de empaque y nómina agrícola<br>
+                    • Administración de servidores Windows/Linux y máquinas virtuales<br>
+                    • Implementación de sistemas de respaldo y recuperación de datos<br>
+                    • Soporte técnico integral para operaciones críticas de temporada
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <h3>Desarrollador de Software y Administrador de Sistemas</h3>
+                <div class="company">Diversos Clientes - Freelance</div>
+                <div class="period">2020 - Presente</div>
+                <div class="description">
+                    • Desarrollo de aplicaciones web y de escritorio para gestión empresarial<br>
+                    • Administración de bases de datos SQL Server, MySQL y PostgreSQL<br>
+                    • Configuración de entornos de desarrollo y producción<br>
+                    • Implementación de soluciones de conectividad y telecomunicaciones<br>
+                    • Consultoría técnica para migración de sistemas legacy
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Competencias Técnicas</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Redes e Infraestructura</h4>
+                    <ul>
+                        <li>Diseño de redes empresariales</li>
+                        <li>Segmentación de redes</li>
+                        <li>Cableado estructurado</li>
+                        <li>Redes inalámbricas (Wi-Fi)</li>
+                        <li>Enlaces punto a punto</li>
+                        <li>Telefonía IP</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Seguridad y Administración</h4>
+                    <ul>
+                        <li>Administración de Firewall</li>
+                        <li>Directorio Activo</li>
+                        <li>Administración de servidores</li>
+                        <li>Máquinas virtuales</li>
+                        <li>Plataformas de respaldo</li>
+                        <li>Monitoreo de red</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Sistemas Operativos</h4>
+                    <ul>
+                        <li>Windows Server</li>
+                        <li>Linux (CentOS, Ubuntu)</li>
+                        <li>VMware vSphere</li>
+                        <li>Docker</li>
+                        <li>Active Directory</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Desarrollo y Bases de Datos</h4>
+                    <ul>
+                        <li>SQL básico/intermedio</li>
+                        <li>Desarrollo web</li>
+                        <li>Programación C#, Python</li>
+                        <li>JavaScript, React</li>
+                        <li>Bases de datos relacionales</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Formación Académica</h2>
+            
+            <div class="education-item">
+                <h4>Ingeniería en Sistemas Computacionales</h4>
+                <div class="institution">Instituto Tecnológico</div>
+                <div class="period">En curso / Completado</div>
+            </div>
+            
+            <div class="education-item">
+                <h4>Certificaciones en Redes y Sistemas</h4>
+                <div class="institution">Diversos proveedores tecnológicos</div>
+                <div class="period">2020 - 2024</div>
+            </div>
+        </div>
+
+        <div class="section companies-section">
+            <h2>Empresas Colaboradoras - Sector Agrícola</h2>
+            <p style="margin-bottom: 15px; color: #555; font-style: italic;">
+                Referencias disponibles sin compromiso
+            </p>
+            <div class="companies-grid">
+                <div class="company-logo">
+                    <img src="LOGO_GIADELA_URL" alt="Giadela" style="display: none;">
+                    <span>Giadela</span>
+                </div>
+                <div class="company-logo">
+                    <img src="LOGO_DIAMANTE_URL" alt="Grupo Agropecuario El Diamante" style="display: none;">
+                    <span>Grupo Agropecuario<br>El Diamante</span>
+                </div>
+                <div class="company-logo">
+                    <img src="LOGO_GRABASO_URL" alt="El Grabaso" style="display: none;">
+                    <span>El Grabaso</span>
+                </div>
+                <div class="company-logo">
+                    <img src="LOGO_GRANJA_URL" alt="La Granja Agroinsumos" style="display: none;">
+                    <span>La Granja<br>Agroinsumos</span>
+                </div>
+                <div class="company-logo">
+                    <img src="LOGO_SAN_JULIAN_URL" alt="Campo San Julián" style="display: none;">
+                    <span>Campo<br>San Julián</span>
+                </div>
+                <div class="company-logo">
+                    <img src="LOGO_PIAVE_URL" alt="El Piave" style="display: none;">
+                    <span>El Piave</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Información Adicional</h2>
+            <div style="background-color: #f8f9fa; padding: 15px; border-left: 4px solid #2c5aa0; border-radius: 0 5px 5px 0;">
+                <p style="margin-bottom: 10px;"><strong>✓</strong> Disponibilidad completa de horario</p>
+                <p style="margin-bottom: 10px;"><strong>✓</strong> Disponibilidad para viajar</p>
+                <p style="margin-bottom: 10px;"><strong>✓</strong> Experiencia comprobable en sector agrícola</p>
+                <p style="margin-bottom: 0;"><strong>✓</strong> Referencias laborales disponibles</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Variables para las URLs de imágenes - fácil actualización
+        const imageUrls = {
+            profilePhoto: 'PLACEHOLDER_PHOTO_URL',
+            logoGiadela: 'LOGO_GIADELA_URL',
+            logoDiamante: 'LOGO_DIAMANTE_URL',
+            logoGrabaso: 'LOGO_GRABASO_URL',
+            logoGranja: 'LOGO_GRANJA_URL',
+            logoSanJulian: 'LOGO_SAN_JULIAN_URL',
+            logoPiave: 'LOGO_PIAVE_URL'
+        };
+
+        // Función para actualizar imágenes cuando se proporcionen las URLs
+        function updateImages() {
+            // Foto de perfil
+            const profileImg = document.querySelector('.photo-container img');
+            const profilePlaceholder = document.querySelector('.photo-container span');
+            if (imageUrls.profilePhoto !== 'PLACEHOLDER_PHOTO_URL') {
+                profileImg.src = imageUrls.profilePhoto;
+                profileImg.style.display = 'block';
+                profilePlaceholder.style.display = 'none';
+            }
+
+            // Logos de empresas
+            Object.keys(imageUrls).forEach(key => {
+                if (key.startsWith('logo') && imageUrls[key] !== key.toUpperCase() + '_URL') {
+                    const img = document.querySelector(`img[src="${imageUrls[key]}"]`);
+                    if (img) {
+                        img.style.display = 'block';
+                        img.parentNode.querySelector('span').style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Llamar a la función al cargar la página
+        document.addEventListener('DOMContentLoaded', updateImages);
+    </script>
+</body>
+</html>
