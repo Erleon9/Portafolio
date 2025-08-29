@@ -20,14 +20,19 @@ import './App.css';
 
 // Configuración de imágenes - fácil de actualizar
 const imageConfig = {
-  profilePhoto: 'PLACEHOLDER_PHOTO_URL',
+  profilePhoto: 'https://github.com/Erleon9.png',
+  personalPhotos: [
+    '/PHOTO-2024-04-05-10-06-20.jpg',
+    '/PHOTO-2024-05-31-11-02-23.jpg'
+  ],
   companies: {
-    giadela: 'LOGO_GIADELA_URL',
-    diamante: 'LOGO_DIAMANTE_URL', 
-    grabaso: 'LOGO_GRABASO_URL',
-    granja: 'LOGO_GRANJA_URL',
-    sanJulian: 'LOGO_SAN_JULIAN_URL',
-    piave: 'LOGO_PIAVE_URL'
+    giadela: '/images/companies/Giadela.png',
+    diamante: '/images/companies/GrupoElDiamante.png', 
+    grabaso: '/images/companies/Grabazo.png',
+    granja: '/images/companies/GranjaAgroInsumos.png',
+    sanJulian: '/images/companies/JulianMontenegro.png',
+    piave: '/images/companies/Piave.png',
+    agroFarm: '/images/companies/AgroFarm.png'
   }
 };
 
@@ -50,7 +55,8 @@ function App() {
     { name: "El Grabaso", logo: imageConfig.companies.grabaso },
     { name: "La Granja Agroinsumos", logo: imageConfig.companies.granja },
     { name: "Campo San Julián", logo: imageConfig.companies.sanJulian },
-    { name: "El Piave", logo: imageConfig.companies.piave }
+    { name: "El Piave", logo: imageConfig.companies.piave },
+    { name: "Agro Farm", logo: imageConfig.companies.agroFarm }
   ];
 
   const skills = [
@@ -85,8 +91,8 @@ function App() {
         "Windows Server",
         "Linux (CentOS, Ubuntu)",
         "VMware vSphere", 
-        "Docker",
-        "Active Directory"
+        "Active Directory",
+        "Virtualización"
       ]
     },
     {
@@ -95,8 +101,8 @@ function App() {
       items: [
         "SQL básico/intermedio",
         "Desarrollo web",
-        "Programación C#, Python", 
-        "JavaScript, React",
+        "Programación C#", 
+        "JavaScript, Vue.js, Node.js",
         "Bases de datos relacionales"
       ]
     }
@@ -104,14 +110,16 @@ function App() {
 
   const experiences = [
     {
-      title: "Ingeniero de Infraestructura y Sistemas - Sector Agrícola",
-      company: "Empresas del Sector Agropecuario",
+      title: "Ingeniero de Infraestructura y Sistemas - Sector Agropecuario",
+      company: "Empresas del Sector Agropecuario y Ganadero",
       period: "2021 - Presente (3+ años)",
       description: [
         "Diseño e implementación de redes empresariales en áreas de empaque agrícola",
+        "Desarrollo de software para el sector ganadero en áreas de engorda",
         "Instalación y configuración de cableado estructurado en instalaciones de gran escala",
         "Administración y configuración de routers, switches y equipos de red",
-        "Desarrollo de software especializado para el área de empaque y nómina agrícola", 
+        "Desarrollo de software especializado para empaque y nómina agrícola",
+        "Creación de 'Agroeasy': Software agrícola para empaque y envío de frutas", 
         "Administración de servidores Windows/Linux y máquinas virtuales",
         "Implementación de sistemas de respaldo y recuperación de datos",
         "Soporte técnico integral para operaciones críticas de temporada"
@@ -122,10 +130,11 @@ function App() {
       company: "Diversos Clientes - Freelance",
       period: "2020 - Presente",
       description: [
-        "Desarrollo de aplicaciones web y de escritorio para gestión empresarial",
+        "Desarrollo de sistemas ERP para hospitales, ventas y gestión empresarial",
+        "Sistemas para compañías fleteras y empresas de construcción", 
+        "Software agrícola especializado (nómina, empaques, embarques)",
         "Administración de bases de datos SQL Server, MySQL y PostgreSQL",
         "Configuración de entornos de desarrollo y producción",
-        "Implementación de soluciones de conectividad y telecomunicaciones",
         "Consultoría técnica para migración de sistemas legacy"
       ]
     }
@@ -142,7 +151,9 @@ function App() {
           <ul className="nav-menu">
             <li><a href="#home" onClick={() => setActiveSection('home')}>Inicio</a></li>
             <li><a href="#about" onClick={() => setActiveSection('about')}>Acerca de</a></li>
+            <li><a href="#photos" onClick={() => setActiveSection('photos')}>Campo</a></li>
             <li><a href="#experience" onClick={() => setActiveSection('experience')}>Experiencia</a></li>
+            <li><a href="#projects" onClick={() => setActiveSection('projects')}>Proyectos</a></li>
             <li><a href="#skills" onClick={() => setActiveSection('skills')}>Habilidades</a></li>
             <li><a href="#companies" onClick={() => setActiveSection('companies')}>Empresas</a></li>
             <li><a href="#contact" onClick={() => setActiveSection('contact')}>Contacto</a></li>
@@ -162,9 +173,9 @@ function App() {
                 {personalData.title}
               </h2>
               <p className="hero-description">
-                {personalData.subtitle} con más de 3 años de experiencia específica en sistemas 
-                para el sector agrícola. Especialista en redes empresariales, desarrollo de software 
-                y soluciones tecnológicas integrales.
+                {personalData.subtitle} con más de 3 años de experiencia en sistemas 
+                para el sector agrícola y ganadero. Desarrollador de sistemas ERP para diversos sectores 
+                incluyendo hospitales, ventas, compañías fleteras y construcción.
               </p>
               <div className="hero-buttons">
                 <a href="#contact" className="btn btn-primary">
@@ -177,14 +188,7 @@ function App() {
             </div>
             <div className="hero-image">
               <div className="profile-photo">
-                {imageConfig.profilePhoto !== 'PLACEHOLDER_PHOTO_URL' ? (
-                  <img src={imageConfig.profilePhoto} alt="Eros León en campo agrícola" />
-                ) : (
-                  <div className="photo-placeholder">
-                    <FaLeaf size={48} />
-                    <span>Foto en campo<br />agrícola</span>
-                  </div>
-                )}
+                <img src={`${imageConfig.profilePhoto}?size=400`} alt="Eros León - Ingeniero de Infraestructura" />
               </div>
             </div>
           </div>
@@ -198,15 +202,21 @@ function App() {
           <div className="about-content">
             <div className="about-text">
               <p>
-                Ingeniero especializado en infraestructura con una sólida experiencia de más de 3 años 
-                en sistemas para el sector agrícola. Mi expertise abarca desde el diseño e implementación 
-                de redes empresariales hasta el desarrollo de software especializado para procesos agrícolas.
+                Ingeniero de infraestructura con más de 3 años de experiencia en sistemas para el 
+                sector agrícola. Mi trabajo abarca diseño e implementación de redes empresariales, 
+                administración de servidores y desarrollo de software.
               </p>
               <p>
-                He tenido el privilegio de trabajar con empresas líderes en el sector agropecuario, 
-                implementando soluciones tecnológicas en cultivos de uva de mesa, sandía, melón y otros 
-                productos agrícolas. Mi enfoque combina conocimientos técnicos sólidos con una comprensión 
-                profunda de las necesidades específicas del sector agrícola.
+                He desarrollado sistemas ERP para hospitales, ventas, compañías fleteras, empresas 
+                de construcción y software agrícola especializado. En el sector agropecuario, he 
+                trabajado en instalación de redes y desarrollo de software para nómina, empaques y 
+                embarques en cultivos de uva de mesa, sandía y melón. También tengo experiencia 
+                en el sector ganadero implementando software en áreas de engorda.
+              </p>
+              <p>
+                Actualmente curso Ingeniería en Sistemas Computacionales en UVEG (Universidad Virtual del 
+                Estado de Guanajuato), próximo a realizar prácticas profesionales. La modalidad en línea 
+                me permite mantener total disponibilidad laboral sin conflictos académicos.
               </p>
               <div className="key-points">
                 <div className="point">
@@ -232,6 +242,25 @@ function App() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Personal Photos Section */}
+      <section id="photos" className="section personal-photos">
+        <div className="container">
+          <h2 className="section-title text-center">En el Campo</h2>
+          <p className="section-subtitle text-center">
+            Experiencia directa en el sector agrícola
+          </p>
+          <div className="photos-grid grid grid-2">
+            {imageConfig.personalPhotos.map((photo, index) => (
+              <div key={index} className="photo-card card">
+                <div className="photo-container">
+                  <img src={photo} alt={`Trabajo en campo ${index + 1}`} />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -281,6 +310,47 @@ function App() {
         </div>
       </section>
 
+      {/* Projects Section */}
+      <section id="projects" className="section projects">
+        <div className="container">
+          <h2 className="section-title text-center">Proyecto Destacado</h2>
+          <div className="project-highlight card">
+            <div className="project-content">
+              <div className="project-info">
+                <h3 className="project-title">🌾 Agroeasy</h3>
+                <p className="project-description">
+                  Software agrícola especializado para empaque y envío de frutas. Desarrollado 
+                  específicamente para optimizar procesos en el sector agropecuario, incluyendo 
+                  gestión de inventarios, control de calidad y logística de embarques.
+                </p>
+                <div className="project-tech">
+                  <span className="tech-tag">Vue.js</span>
+                  <span className="tech-tag">Node.js</span>
+                  <span className="tech-tag">SQL</span>
+                  <span className="tech-tag">Agricultura</span>
+                </div>
+              </div>
+              <div className="project-impact">
+                <div className="impact-item">
+                  <FaLeaf className="impact-icon" />
+                  <div>
+                    <h4>Software Agrícola</h4>
+                    <p>Especializado en empaque de frutas</p>
+                  </div>
+                </div>
+                <div className="impact-item">
+                  <FaDatabase className="impact-icon" />
+                  <div>
+                    <h4>Gestión Integral</h4>
+                    <p>Control de inventarios y embarques</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Companies Section */}
       <section id="companies" className="section companies">
         <div className="container">
@@ -292,13 +362,7 @@ function App() {
             {companies.map((company, index) => (
               <div key={index} className="company-card card">
                 <div className="company-logo">
-                  {company.logo !== `LOGO_${company.name.replace(/\s+/g, '_').toUpperCase()}_URL` ? (
-                    <img src={company.logo} alt={company.name} />
-                  ) : (
-                    <span className="logo-placeholder">
-                      {company.name}
-                    </span>
-                  )}
+                  <img src={company.logo} alt={company.name} />
                 </div>
               </div>
             ))}

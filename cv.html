@@ -15,14 +15,39 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.4;
             color: #333;
-            background-color: #ffffff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="30" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.06)"/><circle cx="90" cy="80" r="2.5" fill="rgba(255,255,255,0.04)"/><circle cx="10" cy="90" r="1.8" fill="rgba(255,255,255,0.05)"/><circle cx="70" cy="10" r="1.2" fill="rgba(255,255,255,0.07)"/></svg>'),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M30 10L35 20H45L37 28L40 40L30 35L20 40L23 28L15 20H25L30 10Z" fill="rgba(255,255,255,0.03)"/></svg>');
+            background-size: 200px 200px, 150px 150px;
+            background-position: 0 0, 100px 50px;
+            z-index: -1;
+            pointer-events: none;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            background: white;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            margin-top: 20px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
         }
 
         .header {
@@ -252,8 +277,7 @@
     <div class="container">
         <div class="header">
             <div class="photo-container">
-                <img src="PLACEHOLDER_PHOTO_URL" alt="Eros León" style="display: none;">
-                <span>Foto en campo<br>agrícola</span>
+                <img src="https://github.com/Erleon9.png?size=300" alt="Eros León - Ingeniero de Infraestructura">
             </div>
             <div class="header-info">
                 <h1>Eros Alejandro León Félix</h1>
@@ -275,7 +299,7 @@
         <div class="section">
             <h2>Perfil Profesional</h2>
             <p class="profile-text">
-                Ingeniero especializado en infraestructura con más de 3 años de experiencia específica en sistemas para el sector agrícola. Experto en diseño e implementación de redes empresariales, administración de servidores, desarrollo de software agrícola y soluciones tecnológicas integrales para el sector agropecuario. He trabajado directamente con empresas líderes en cultivos de uva de mesa, sandía, melón y otros productos agrícolas, instalando redes en áreas de empaque, configurando infraestructura de telecomunicaciones y desarrollando software especializado para nómina y procesos de empaque.
+                Ingeniero de infraestructura con más de 3 años de experiencia en sistemas para el sector agrícola. Mi trabajo abarca diseño e implementación de redes empresariales, administración de servidores y desarrollo de software. He desarrollado sistemas ERP para hospitales, ventas, compañías fleteras, empresas de construcción y software agrícola especializado. En el sector agropecuario, he trabajado con cultivos de uva de mesa, sandía y melón, instalando redes en áreas de empaque y desarrollando software para nómina, empaques y embarques. También tengo experiencia en el sector ganadero implementando software en áreas de engorda.
             </p>
         </div>
 
@@ -283,14 +307,16 @@
             <h2>Experiencia Laboral</h2>
             
             <div class="experience-item">
-                <h3>Ingeniero de Infraestructura y Sistemas - Sector Agrícola</h3>
-                <div class="company">Empresas del Sector Agropecuario</div>
+                <h3>Ingeniero de Infraestructura y Sistemas - Sector Agropecuario</h3>
+                <div class="company">Empresas del Sector Agropecuario y Ganadero</div>
                 <div class="period">2021 - Presente (3+ años)</div>
                 <div class="description">
                     • Diseño e implementación de redes empresariales en áreas de empaque agrícola<br>
+                    • Desarrollo de software para el sector ganadero en áreas de engorda<br>
                     • Instalación y configuración de cableado estructurado en instalaciones de gran escala<br>
                     • Administración y configuración de routers, switches y equipos de red<br>
-                    • Desarrollo de software especializado para el área de empaque y nómina agrícola<br>
+                    • Desarrollo de software especializado para empaque y nómina agrícola<br>
+                    • Creación de "Agroeasy": Software agrícola para empaque y envío de frutas<br>
                     • Administración de servidores Windows/Linux y máquinas virtuales<br>
                     • Implementación de sistemas de respaldo y recuperación de datos<br>
                     • Soporte técnico integral para operaciones críticas de temporada
@@ -302,10 +328,11 @@
                 <div class="company">Diversos Clientes - Freelance</div>
                 <div class="period">2020 - Presente</div>
                 <div class="description">
-                    • Desarrollo de aplicaciones web y de escritorio para gestión empresarial<br>
+                    • Desarrollo de sistemas ERP para hospitales, ventas y gestión empresarial<br>
+                    • Sistemas para compañías fleteras y empresas de construcción<br>
+                    • Software agrícola especializado (nómina, empaques, embarques)<br>
                     • Administración de bases de datos SQL Server, MySQL y PostgreSQL<br>
                     • Configuración de entornos de desarrollo y producción<br>
-                    • Implementación de soluciones de conectividad y telecomunicaciones<br>
                     • Consultoría técnica para migración de sistemas legacy
                 </div>
             </div>
@@ -344,8 +371,8 @@
                         <li>Windows Server</li>
                         <li>Linux (CentOS, Ubuntu)</li>
                         <li>VMware vSphere</li>
-                        <li>Docker</li>
                         <li>Active Directory</li>
+                        <li>Virtualización</li>
                     </ul>
                 </div>
                 
@@ -354,8 +381,8 @@
                     <ul>
                         <li>SQL básico/intermedio</li>
                         <li>Desarrollo web</li>
-                        <li>Programación C#, Python</li>
-                        <li>JavaScript, React</li>
+                        <li>Programación C#</li>
+                        <li>JavaScript, Vue.js, Node.js</li>
                         <li>Bases de datos relacionales</li>
                     </ul>
                 </div>
@@ -367,8 +394,11 @@
             
             <div class="education-item">
                 <h4>Ingeniería en Sistemas Computacionales</h4>
-                <div class="institution">Instituto Tecnológico</div>
-                <div class="period">En curso / Completado</div>
+                <div class="institution">UVEG - Universidad Virtual del Estado de Guanajuato</div>
+                <div class="period">En curso - Próximo a realizar prácticas profesionales</div>
+                <div style="color: #666; font-size: 0.9em; margin-top: 8px; font-style: italic;">
+                    Modalidad en línea que no interfiere con horarios laborales
+                </div>
             </div>
             
             <div class="education-item">
@@ -385,28 +415,25 @@
             </p>
             <div class="companies-grid">
                 <div class="company-logo">
-                    <img src="LOGO_GIADELA_URL" alt="Giadela" style="display: none;">
-                    <span>Giadela</span>
+                    <img src="./public/images/companies/Giadela.png" alt="Giadela">
                 </div>
                 <div class="company-logo">
-                    <img src="LOGO_DIAMANTE_URL" alt="Grupo Agropecuario El Diamante" style="display: none;">
-                    <span>Grupo Agropecuario<br>El Diamante</span>
+                    <img src="./public/images/companies/GrupoElDiamante.png" alt="Grupo Agropecuario El Diamante">
                 </div>
                 <div class="company-logo">
-                    <img src="LOGO_GRABASO_URL" alt="El Grabaso" style="display: none;">
-                    <span>El Grabaso</span>
+                    <img src="./public/images/companies/Grabazo.png" alt="El Grabaso">
                 </div>
                 <div class="company-logo">
-                    <img src="LOGO_GRANJA_URL" alt="La Granja Agroinsumos" style="display: none;">
-                    <span>La Granja<br>Agroinsumos</span>
+                    <img src="./public/images/companies/GranjaAgroInsumos.png" alt="La Granja Agroinsumos">
                 </div>
                 <div class="company-logo">
-                    <img src="LOGO_SAN_JULIAN_URL" alt="Campo San Julián" style="display: none;">
-                    <span>Campo<br>San Julián</span>
+                    <img src="./public/images/companies/JulianMontenegro.png" alt="Campo San Julián">
                 </div>
                 <div class="company-logo">
-                    <img src="LOGO_PIAVE_URL" alt="El Piave" style="display: none;">
-                    <span>El Piave</span>
+                    <img src="./public/images/companies/Piave.png" alt="El Piave">
+                </div>
+                <div class="company-logo">
+                    <img src="./public/images/companies/AgroFarm.png" alt="Agro Farm">
                 </div>
             </div>
         </div>
@@ -425,13 +452,14 @@
     <script>
         // Variables para las URLs de imágenes - fácil actualización
         const imageUrls = {
-            profilePhoto: 'PLACEHOLDER_PHOTO_URL',
-            logoGiadela: 'LOGO_GIADELA_URL',
-            logoDiamante: 'LOGO_DIAMANTE_URL',
-            logoGrabaso: 'LOGO_GRABASO_URL',
-            logoGranja: 'LOGO_GRANJA_URL',
-            logoSanJulian: 'LOGO_SAN_JULIAN_URL',
-            logoPiave: 'LOGO_PIAVE_URL'
+            profilePhoto: 'https://github.com/Erleon9.png',
+            logoGiadela: './public/images/companies/Giadela.png',
+            logoDiamante: './public/images/companies/GrupoElDiamante.png',
+            logoGrabaso: './public/images/companies/Grabazo.png',
+            logoGranja: './public/images/companies/GranjaAgroInsumos.png',
+            logoSanJulian: './public/images/companies/JulianMontenegro.png',
+            logoPiave: './public/images/companies/Piave.png',
+            logoAgroFarm: './public/images/companies/AgroFarm.png'
         };
 
         // Función para actualizar imágenes cuando se proporcionen las URLs

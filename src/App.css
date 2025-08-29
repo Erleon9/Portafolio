@@ -161,6 +161,34 @@
   background-color: var(--bg-white);
 }
 
+/* Personal Photos Section */
+.personal-photos {
+  background-color: var(--bg-light);
+}
+
+.photo-card {
+  overflow: hidden;
+  height: 800px;
+}
+
+.photo-card .photo-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+.photo-card .photo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.photo-card:hover .photo-container img {
+  transform: scale(1.05);
+}
+
 .about-text p {
   font-size: 1.1rem;
   line-height: 1.8;
@@ -291,6 +319,85 @@
 /* Skills Section */
 .skills {
   background-color: var(--bg-white);
+}
+
+/* Projects Section */
+.projects {
+  background-color: var(--bg-light);
+}
+
+.project-highlight {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.project-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.project-title {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.project-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  font-size: 1.1rem;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tag {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.project-impact {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.impact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.impact-icon {
+  color: var(--accent-color);
+  font-size: 24px;
+  margin-top: 4px;
+}
+
+.impact-item h4 {
+  color: var(--primary-color);
+  margin-bottom: 4px;
+  font-size: 1.1rem;
+}
+
+.impact-item p {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 0.95rem;
 }
 
 .skills-grid {
